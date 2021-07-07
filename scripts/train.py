@@ -1,17 +1,17 @@
 """Script for multi-gpu training."""
-import json
-import os
+import json #json是java script object notation的缩写，用来存储和交换文本信息
+import os  #该模块提供了一些方便使用操作系统相关功能的函数
 
-import numpy as np
-import torch
-import torch.nn as nn
-import torch.utils.data
-from tensorboardX import SummaryWriter
-from tqdm import tqdm
+import numpy as np #导入numpy模块，矩阵运算、数组运算等
+import torch #导入torch
+import torch.nn as nn #简化模型
+import torch.utils.data #数据读取
+from tensorboardX import SummaryWriter #tensorboardX是一个用tensorboard的视觉模块，可视化
+from tqdm import tqdm #    显示循环的进度条的库
 
 from alphapose.models import builder
 from alphapose.opt import cfg, logger, opt
-from alphapose.utils.logger import board_writing, debug_writing
+from alphapose.utils.logger import board_writing, debug_writing  #utils是写一些工具
 from alphapose.utils.metrics import DataLogger, calc_accuracy, calc_integral_accuracy, evaluate_mAP
 from alphapose.utils.transforms import get_func_heatmap_to_coord
 
